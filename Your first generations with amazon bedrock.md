@@ -6,36 +6,51 @@ import boto3
 import json
 
 2. Setup Bedrock runtime
+   
 bedrock_runtime = boto3.client('bedrock-runtime', region_name='us-west-2')
 
 3. Prompt Amazon Bedrock
+
 prompt = "Write a one-sentence summary of Nairobi"
 
 4. Prepare keyword arguments for invoking the model
+   
 kwargs = {
+
     "modelId": "amazon.titan-text-lite-v1",
+    
     "contentType": "application/json",
+    
     "accept": "*/*",
+    
     "body": json.dumps({
+    
         "inputText": prompt
+        
     })
+    
 }
 
 5. Invoke the model and get the response
+   
 response = bedrock_runtime.invoke_model(**kwargs)
+
 response_body = json.loads(response.get('body').read())
 
 ![image](https://github.com/charity-12/Serverless-LLM-apps-with-Amazon-Bedrock/assets/93730840/d9cfaff1-d2c1-40be-be1b-969e92ad4bc6)
 
 
 6. Print the formatted response
+   
 print(json.dumps(response_body, indent=4))
 
 ![image](https://github.com/charity-12/Serverless-LLM-apps-with-Amazon-Bedrock/assets/93730840/186c5278-d06d-4bec-8e12-9ad95c6aac89)
 
 
 7. Access and print the outputText from the results
+   
 output_text = response_body['results'][0]['outputText']
+
 print(output_text)
 
 ![image](https://github.com/charity-12/Serverless-LLM-apps-with-Amazon-Bedrock/assets/93730840/8c86ee36-fac1-4399-9293-6f5373179413)
