@@ -2,6 +2,7 @@
 1. Import necessary packages
 
 import boto3
+
 import json
 
 2. Setup Bedrock runtime
