@@ -1,5 +1,6 @@
 # Your First Generation With Amazon Bedrock
 1. Import necessary packages
+
 import boto3
 import json
 
