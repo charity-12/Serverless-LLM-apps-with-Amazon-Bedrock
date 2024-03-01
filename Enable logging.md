@@ -14,7 +14,6 @@ Make sure you have the following prerequisites in place before proceeding:
 
 ## Implementation
 
-```python
 
 1. Import Necessary Libraries
 
